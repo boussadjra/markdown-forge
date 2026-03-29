@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import ignore, { type Ignore } from 'ignore';
-import type { TreeNode } from '../../shared/dist/index';
+import type { TreeNode } from '@markdown-forge/shared';
 
 const ALWAYS_IGNORED = new Set(['node_modules', '.git', '.vscode', 'dist', 'out']);
 

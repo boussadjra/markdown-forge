@@ -1,7 +1,7 @@
 import MarkdownIt from 'markdown-it';
 import matter from 'gray-matter';
 import hljs from 'highlight.js';
-import type { MarkdownDocument, Plugin } from '../../shared/dist/index';
+import type { MarkdownDocument, Plugin } from '@markdown-forge/shared';
 
 export class MarkdownEngine {
   private md: MarkdownIt;

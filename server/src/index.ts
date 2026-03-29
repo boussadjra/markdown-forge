@@ -3,7 +3,7 @@ import http from 'http';
 import path from 'path';
 import fs from 'fs';
 import { WebSocketServer, WebSocket } from 'ws';
-import type { ServerConfig, WsMessage, Plugin, TreeNode } from '../../shared/dist/index';
+import type { ServerConfig, WsMessage, Plugin, TreeNode } from '@markdown-forge/shared';
 import { MarkdownEngine } from './engine';
 import { buildTree } from './tree';
 import { ThemeManager } from './themes';

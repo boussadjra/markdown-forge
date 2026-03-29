@@ -8,6 +8,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@markdown-forge/shared": "workspace:*",
     "express": "^4.21.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.9.0",

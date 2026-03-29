@@ -43,21 +43,40 @@ if (existsSync(serverNodeModules)) {
   console.log(`  ✓ server/node_modules → ${destNodeModules}`);
 }
 
-// Patch extension dist: fix require paths from dev layout to bundled layout
+// Patch extension dist: fix require paths from workspace packages to bundled layout
 const extJs = join(ext, 'dist', 'extension.js');
 if (existsSync(extJs)) {
   let code = readFileSync(extJs, 'utf-8');
-  // require("../../server/dist/index") → require("../server-dist/index")
+  // require("@markdown-forge/server") → require("../server-dist/index")
   code = code.replace(
-    /require\("\.\.\/\.\.\/server\/dist\/index"\)/g,
+    /require\("@markdown-forge\/server"\)/g,
     'require("../server-dist/index")'
+  );
+  // require("@markdown-forge/shared") → require("../shared-dist/index")
+  code = code.replace(
+    /require\("@markdown-forge\/shared"\)/g,
+    'require("../shared-dist/index")'
   );
   writeFileSync(extJs, code, 'utf-8');
   console.log('  ✓ Patched extension.js require paths');
 }
 
-// Patch server-dist: fix client dist path resolution
-// The server already handles both bundled and dev layout via fs.existsSync check
+// Patch server-dist: fix @markdown-forge/shared requires to bundled layout
+const serverDistFiles = ['index.js', 'engine.js', 'themes.js', 'tree.js'];
+for (const file of serverDistFiles) {
+  const filePath = join(ext, 'server-dist', file);
+  if (existsSync(filePath)) {
+    let code = readFileSync(filePath, 'utf-8');
+    if (code.includes('@markdown-forge/shared')) {
+      code = code.replace(
+        /require\("@markdown-forge\/shared"\)/g,
+        'require("../shared-dist/index")'
+      );
+      writeFileSync(filePath, code, 'utf-8');
+      console.log(`  ✓ Patched server-dist/${file} shared requires`);
+    }
+  }
+}
 
 // Patch server-dist: fix node_modules resolution for bundled layout
 // Add NODE_PATH so server can find its deps from server-node_modules/

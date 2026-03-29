@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import { StudioServer } from '../../server/dist/index';
-import type { Plugin } from '../../shared/dist/index';
+import { StudioServer } from '@markdown-forge/server';
+import type { Plugin } from '@markdown-forge/shared';
 
 let server: StudioServer | null = null;
 let fileWatcher: vscode.FileSystemWatcher | null = null;

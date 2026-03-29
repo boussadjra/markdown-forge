@@ -1,0 +1,11 @@
+{
+  "name": "@markdown-forge/plugins",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@markdown-forge/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

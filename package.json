@@ -2,13 +2,13 @@
   "name": "markdown-forge-monorepo",
   "private": true,
   "scripts": {
-    "build": "npm run build:shared && npm run build:server && npm run build:client && npm run build:extension",
-    "build:shared": "cd shared && npx tsc",
-    "build:server": "cd server && npx tsc",
-    "build:client": "cd client && npx vite build",
-    "build:extension": "cd extension && npx tsc",
-    "dev:client": "cd client && npx vite",
-    "package": "cd extension && npx vsce package"
+    "build": "pnpm build:shared && pnpm build:server && pnpm build:client && pnpm build:extension",
+    "build:shared": "pnpm --filter @markdown-forge/shared build",
+    "build:server": "pnpm --filter @markdown-forge/server build",
+    "build:client": "pnpm --filter @markdown-forge/client build",
+    "build:extension": "pnpm --filter markdown-forge build",
+    "dev:client": "pnpm --filter @markdown-forge/client dev",
+    "package": "pnpm --filter markdown-forge vsce:package"
   },
   "license": "MIT",
   "repository": {

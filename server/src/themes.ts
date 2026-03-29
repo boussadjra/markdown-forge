@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import type { Theme } from '../../shared/dist/index';
+import type { Theme } from '@markdown-forge/shared';
 
 export class ThemeManager {
   private themesDir: string;

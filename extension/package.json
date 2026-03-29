@@ -95,9 +95,12 @@
     "build": "tsc",
     "watch": "tsc -w",
     "vsce:bundle": "node ../scripts/bundle.mjs",
-    "vsce:package": "npm run vsce:bundle && npx @vscode/vsce package --no-dependencies"
+    "vsce:package": "pnpm run vsce:bundle && npx @vscode/vsce package --no-dependencies"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@markdown-forge/server": "workspace:*",
+    "@markdown-forge/shared": "workspace:*"
+  },
   "devDependencies": {
     "@types/vscode": "^1.85.0",
     "@types/express": "^4.17.21",

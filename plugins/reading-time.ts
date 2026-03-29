@@ -1,4 +1,4 @@
-import type { Plugin } from '../../shared/dist/index';
+import type { Plugin } from '@markdown-forge/shared';
 
 /**
  * Example plugin: adds "reading time" estimate to rendered pages.

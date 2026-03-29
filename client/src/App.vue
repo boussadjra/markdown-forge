@@ -24,7 +24,7 @@ const saving = ref(false);
 
 // Persist dark mode preference
 function initDarkMode() {
-  const saved = localStorage.getItem('markdownStudio.darkMode');
+  const saved = localStorage.getItem('markdownForge.darkMode');
   if (saved !== null) {
     darkMode.value = saved === 'true';
   } else {
@@ -39,7 +39,7 @@ function applyDarkMode() {
 
 function toggleDarkMode() {
   darkMode.value = !darkMode.value;
-  localStorage.setItem('markdownStudio.darkMode', String(darkMode.value));
+  localStorage.setItem('markdownForge.darkMode', String(darkMode.value));
   applyDarkMode();
 }
 
@@ -60,7 +60,7 @@ async function loadFile(path: string) {
 
 function onThemeChange(name: string) {
   activeTheme.value = name;
-  localStorage.setItem('markdownStudio.theme', name);
+  localStorage.setItem('markdownForge.theme', name);
 
   // Set data-theme attribute for CSS variable scoping
   if (name === 'default') {
@@ -87,7 +87,7 @@ function onThemeChange(name: string) {
 
 function onCodeThemeChange(name: string) {
   codeTheme.value = name;
-  localStorage.setItem('markdownStudio.codeTheme', name);
+  localStorage.setItem('markdownForge.codeTheme', name);
   applyCodeTheme(name);
 }
 
@@ -128,7 +128,7 @@ onMounted(async () => {
   initDarkMode();
 
   // Restore code theme
-  const savedCodeTheme = localStorage.getItem('markdownStudio.codeTheme');
+  const savedCodeTheme = localStorage.getItem('markdownForge.codeTheme');
   if (savedCodeTheme) codeTheme.value = savedCodeTheme;
   applyCodeTheme(codeTheme.value);
 
@@ -136,7 +136,7 @@ onMounted(async () => {
   themes.value = await fetchThemes();
 
   // Restore UI theme
-  const savedTheme = localStorage.getItem('markdownStudio.theme');
+  const savedTheme = localStorage.getItem('markdownForge.theme');
   if (savedTheme && themes.value.some((t) => t.name === savedTheme)) {
     onThemeChange(savedTheme);
   }
@@ -193,7 +193,7 @@ function findFirstFile(nodes: TreeNode[]): string | undefined {
       >
         <Icon icon="solar:book-2-bold" class="w-6 h-6 text-blue-500" />
         <span class="font-semibold text-base tracking-tight" :style="{ color: 'var(--color-text-heading)' }">
-          Markdown Studio
+          Markdown Forge
         </span>
       </div>
 

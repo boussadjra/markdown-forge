@@ -3,3 +3,19 @@ dist/
 out/
 *.vsix
 .DS_Store
+
+# Build outputs
+extension/client-dist/
+extension/server-dist/
+extension/shared-dist/
+extension/server-node_modules/
+extension/vsix-extracted/
+extension/themes/
+
+# Compiled JS/DTS alongside TS sources
+server/src/**/*.js
+server/src/**/*.js.map
+server/src/**/*.d.ts
+shared/src/**/*.js
+shared/src/**/*.js.map
+shared/src/**/*.d.ts

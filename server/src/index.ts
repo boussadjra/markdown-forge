@@ -136,7 +136,11 @@ export class StudioServer {
     });
 
     // Client static files — served from the built client dist
-    const clientDist = path.join(__dirname, '..', '..', 'client', 'dist');
+    // When bundled: server-dist/ and client-dist/ are siblings under extension/
+    // When dev: server/dist/ -> ../../client/dist
+    const clientDist = fs.existsSync(path.join(__dirname, '..', 'client-dist'))
+      ? path.join(__dirname, '..', 'client-dist')
+      : path.join(__dirname, '..', '..', 'client', 'dist');
     if (fs.existsSync(clientDist)) {
       this.app.use(express.static(clientDist));
       // SPA fallback

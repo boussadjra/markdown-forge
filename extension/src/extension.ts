@@ -8,14 +8,14 @@ let fileWatcher: vscode.FileSystemWatcher | null = null;
 let actualPort: number | null = null;
 
 function setServerRunning(running: boolean): void {
-  vscode.commands.executeCommand('setContext', 'markdownStudio.serverRunning', running);
+  vscode.commands.executeCommand('setContext', 'markdownForge.serverRunning', running);
 }
 
 export function activate(context: vscode.ExtensionContext) {
   setServerRunning(false);
 
   // --- Serve Command ---
-  const serveCmd = vscode.commands.registerCommand('markdownStudio.serve', async () => {
+  const serveCmd = vscode.commands.registerCommand('markdownForge.serve', async () => {
     const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
     if (!workspaceFolder) {
       vscode.window.showErrorMessage('Open a workspace folder first.');
@@ -23,20 +23,20 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     if (server) {
-      vscode.window.showInformationMessage('Markdown Studio is already running.');
+      vscode.window.showInformationMessage('Markdown Forge is already running.');
       openBrowser(actualPort ?? getPort());
       return;
     }
 
-    const config = vscode.workspace.getConfiguration('markdownStudio');
+    const config = vscode.workspace.getConfiguration('markdownForge');
     const port = config.get<number>('port', 4200);
     const theme = config.get<string>('theme', 'default');
     const autoReload = config.get<boolean>('autoReload', true);
 
     const workspaceRoot = workspaceFolder.uri.fsPath;
     const extensionRoot = context.extensionPath;
-    const themesDir = path.join(extensionRoot, '..', 'themes');
-    const pluginsDir = path.join(extensionRoot, '..', 'plugins');
+    const themesDir = path.join(extensionRoot, 'themes');
+    const pluginsDir = path.join(extensionRoot, 'plugins');
 
     server = new StudioServer({
       port,
@@ -49,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
     try {
       actualPort = await server.start();
       setServerRunning(true);
-      vscode.window.showInformationMessage(`Markdown Studio running on port ${actualPort}`);
+      vscode.window.showInformationMessage(`Markdown Forge running on port ${actualPort}`);
 
       // Determine initial file to open
       const activeFile = vscode.window.activeTextEditor?.document;
@@ -90,7 +90,7 @@ export function activate(context: vscode.ExtensionContext) {
   });
 
   // --- Open in Browser Command (for already-running server) ---
-  const openCmd = vscode.commands.registerCommand('markdownStudio.openInBrowser', async () => {
+  const openCmd = vscode.commands.registerCommand('markdownForge.openInBrowser', async () => {
     if (!server || !actualPort) {
       vscode.window.showErrorMessage('Server is not running. Use "Serve as Website" first.');
       return;
@@ -107,9 +107,9 @@ export function activate(context: vscode.ExtensionContext) {
   });
 
   // --- Stop Command ---
-  const stopCmd = vscode.commands.registerCommand('markdownStudio.stop', async () => {
+  const stopCmd = vscode.commands.registerCommand('markdownForge.stop', async () => {
     if (!server) {
-      vscode.window.showInformationMessage('Markdown Studio is not running.');
+      vscode.window.showInformationMessage('Markdown Forge is not running.');
       return;
     }
 
@@ -119,11 +119,11 @@ export function activate(context: vscode.ExtensionContext) {
     fileWatcher?.dispose();
     fileWatcher = null;
     setServerRunning(false);
-    vscode.window.showInformationMessage('Markdown Studio stopped.');
+    vscode.window.showInformationMessage('Markdown Forge stopped.');
   });
 
   // --- Export Command (placeholder) ---
-  const exportCmd = vscode.commands.registerCommand('markdownStudio.exportSite', async () => {
+  const exportCmd = vscode.commands.registerCommand('markdownForge.exportSite', async () => {
     vscode.window.showInformationMessage('Export feature coming soon.');
   });
 
@@ -150,7 +150,7 @@ export function deactivate(): Promise<void> | undefined {
 }
 
 function getPort(): number {
-  return vscode.workspace.getConfiguration('markdownStudio').get<number>('port', 4200);
+  return vscode.workspace.getConfiguration('markdownForge').get<number>('port', 4200);
 }
 
 async function openBrowser(port: number, filePath?: string): Promise<void> {

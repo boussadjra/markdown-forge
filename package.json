@@ -1,5 +1,5 @@
 {
-  "name": "markdown-studio-monorepo",
+  "name": "markdown-forge-monorepo",
   "private": true,
   "scripts": {
     "build": "npm run build:shared && npm run build:server && npm run build:client && npm run build:extension",

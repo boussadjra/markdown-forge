@@ -1,4 +1,4 @@
-# Markdown Studio
+# Markdown Forge
 
 A VS Code extension that serves Markdown files as a live documentation website in the browser.
 
@@ -34,5 +34,5 @@ Then press F5 in VS Code to launch the extension in debug mode.
 ## Usage
 
 1. Open a workspace with markdown files
-2. Open Command Palette → **Markdown Studio: Serve as Website**
+2. Open Command Palette → **Markdown Forge: Serve as Website**
 3. Browser opens with your documentation site

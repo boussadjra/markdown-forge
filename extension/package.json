@@ -1,76 +1,89 @@
 {
-  "name": "markdown-studio",
-  "displayName": "Markdown Studio",
+  "name": "markdown-forge",
+  "displayName": "Markdown Forge",
   "description": "Serve Markdown files as a live documentation website in the browser",
   "version": "0.1.0",
-  "publisher": "markdown-studio",
+  "publisher": "boussadjrabrahim",
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boussadjra/markdown-studio"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "markdown",
+    "documentation",
+    "preview",
+    "live-server",
+    "docs"
+  ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "markdownStudio.serve",
+        "command": "markdownForge.serve",
         "title": "Serve as Website",
-        "category": "Markdown Studio",
+        "category": "Markdown Forge",
         "icon": "$(globe)"
       },
       {
-        "command": "markdownStudio.openInBrowser",
+        "command": "markdownForge.openInBrowser",
         "title": "Open in Browser",
-        "category": "Markdown Studio",
+        "category": "Markdown Forge",
         "icon": "$(open-preview)"
       },
       {
-        "command": "markdownStudio.stop",
+        "command": "markdownForge.stop",
         "title": "Stop Server",
-        "category": "Markdown Studio",
+        "category": "Markdown Forge",
         "icon": "$(debug-stop)"
       },
       {
-        "command": "markdownStudio.exportSite",
+        "command": "markdownForge.exportSite",
         "title": "Export as Static Site",
-        "category": "Markdown Studio"
+        "category": "Markdown Forge"
       }
     ],
     "menus": {
       "editor/title": [
         {
-          "command": "markdownStudio.serve",
-          "when": "resourceLangId == markdown && !markdownStudio.serverRunning",
+          "command": "markdownForge.serve",
+          "when": "resourceLangId == markdown && !markdownForge.serverRunning",
           "group": "navigation"
         },
         {
-          "command": "markdownStudio.openInBrowser",
-          "when": "resourceLangId == markdown && markdownStudio.serverRunning",
+          "command": "markdownForge.openInBrowser",
+          "when": "resourceLangId == markdown && markdownForge.serverRunning",
           "group": "navigation"
         },
         {
-          "command": "markdownStudio.stop",
-          "when": "resourceLangId == markdown && markdownStudio.serverRunning",
+          "command": "markdownForge.stop",
+          "when": "resourceLangId == markdown && markdownForge.serverRunning",
           "group": "navigation"
         }
       ]
     },
     "configuration": {
-      "title": "Markdown Studio",
+      "title": "Markdown Forge",
       "properties": {
-        "markdownStudio.port": {
+        "markdownForge.port": {
           "type": "number",
           "default": 4200,
-          "description": "Port for the Markdown Studio server"
+          "description": "Port for the Markdown Forge server"
         },
-        "markdownStudio.theme": {
+        "markdownForge.theme": {
           "type": "string",
           "default": "default",
           "description": "Active theme name"
         },
-        "markdownStudio.autoReload": {
+        "markdownForge.autoReload": {
           "type": "boolean",
           "default": true,
           "description": "Automatically reload browser on file changes"
@@ -80,16 +93,11 @@
   },
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "vsce:bundle": "node ../scripts/bundle.mjs",
+    "vsce:package": "npm run vsce:bundle && npx @vscode/vsce package --no-dependencies"
   },
-  "dependencies": {
-    "express": "^4.21.0",
-    "ws": "^8.17.0",
-    "markdown-it": "^14.1.0",
-    "gray-matter": "^4.0.3",
-    "highlight.js": "^11.9.0",
-    "open": "^10.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/vscode": "^1.85.0",
     "@types/express": "^4.17.21",

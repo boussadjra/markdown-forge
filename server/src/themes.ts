@@ -17,11 +17,26 @@ export class ThemeManager {
       .filter((d) => d.isDirectory())
       .map((d) => {
         const dir = path.join(this.themesDir, d.name);
-        const cssFiles = fs
-          .readdirSync(dir)
-          .filter((f) => f.endsWith('.css'))
+        const allFiles = fs.readdirSync(dir).filter((f) => f.endsWith('.css'));
+
+        // Base CSS files (no -dark or -light suffix)
+        const cssFiles = allFiles
+          .filter((f) => !/-dark\.css$/.test(f) && !/-light\.css$/.test(f))
           .map((f) => `${d.name}/${f}`);
-        return { name: d.name, cssFiles };
+
+        // Detect variants
+        const variants: Theme['variants'] = [];
+        const darkFiles = allFiles.filter((f) => /-dark\.css$/.test(f));
+        const lightFiles = allFiles.filter((f) => /-light\.css$/.test(f));
+
+        if (darkFiles.length > 0) {
+          variants.push({ mode: 'dark', cssFiles: darkFiles.map((f) => `${d.name}/${f}`) });
+        }
+        if (lightFiles.length > 0) {
+          variants.push({ mode: 'light', cssFiles: lightFiles.map((f) => `${d.name}/${f}`) });
+        }
+
+        return { name: d.name, cssFiles, variants };
       });
   }
 

@@ -1,0 +1,27 @@
+/* Minimal theme — dark variant */
+html[data-theme="forest-dark"] {
+  --color-bg: #1a1a1a;
+  --color-bg-secondary: #242424;
+  --color-bg-tertiary: #2e2e2e;
+  --color-text: #d4d4d4;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #8a8a8a;
+  --color-text-heading: #f0f0f0;
+  --color-border: #3a3a3a;
+  --color-border-light: #2e2e2e;
+  --color-link: #6cb6ff;
+  --color-link-hover: #93ccff;
+  --color-active-bg: rgba(108, 182, 255, 0.12);
+  --color-active-text: #6cb6ff;
+  --color-hover-bg: #2e2e2e;
+  --color-code-bg: #2e2e2e;
+  --color-code-text: #d4d4d4;
+  --color-pre-bg: #111111;
+  --color-pre-text: #d4d4d4;
+  --color-blockquote-bg: rgba(255, 255, 255, 0.03);
+  --color-blockquote-border: #555555;
+  --color-blockquote-text: #8a8a8a;
+  --color-table-header: #242424;
+  --color-scrollbar: #555555;
+  --color-scrollbar-hover: #6a6a6a;
+}

@@ -1,0 +1,27 @@
+/* Solarized theme — dark variant */
+html[data-theme="sunset-dark"] {
+  --color-bg: #002b36;
+  --color-bg-secondary: #073642;
+  --color-bg-tertiary: #0a4050;
+  --color-text: #93a1a1;
+  --color-text-secondary: #839496;
+  --color-text-muted: #657b83;
+  --color-text-heading: #eee8d5;
+  --color-border: #0a4050;
+  --color-border-light: #073642;
+  --color-link: #268bd2;
+  --color-link-hover: #2aa198;
+  --color-active-bg: rgba(38, 139, 210, 0.15);
+  --color-active-text: #268bd2;
+  --color-hover-bg: #073642;
+  --color-code-bg: #073642;
+  --color-code-text: #cb4b16;
+  --color-pre-bg: #00212b;
+  --color-pre-text: #93a1a1;
+  --color-blockquote-bg: rgba(7, 54, 66, 0.6);
+  --color-blockquote-border: #2aa198;
+  --color-blockquote-text: #657b83;
+  --color-table-header: #073642;
+  --color-scrollbar: #0a4050;
+  --color-scrollbar-hover: #657b83;
+}

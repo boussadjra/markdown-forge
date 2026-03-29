@@ -1,0 +1,27 @@
+/* GitHub theme — dark variant */
+html[data-theme="ocean-dark"] {
+  --color-bg: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-tertiary: #21262d;
+  --color-text: #e6edf3;
+  --color-text-secondary: #b1bac4;
+  --color-text-muted: #8b949e;
+  --color-text-heading: #f0f6fc;
+  --color-border: #30363d;
+  --color-border-light: #21262d;
+  --color-link: #58a6ff;
+  --color-link-hover: #79c0ff;
+  --color-active-bg: rgba(56, 139, 253, 0.15);
+  --color-active-text: #58a6ff;
+  --color-hover-bg: #1c2128;
+  --color-code-bg: rgba(110, 118, 129, 0.2);
+  --color-code-text: #e6edf3;
+  --color-pre-bg: #0d1117;
+  --color-pre-text: #e6edf3;
+  --color-blockquote-bg: transparent;
+  --color-blockquote-border: #30363d;
+  --color-blockquote-text: #8b949e;
+  --color-table-header: #161b22;
+  --color-scrollbar: #30363d;
+  --color-scrollbar-hover: #484f58;
+}

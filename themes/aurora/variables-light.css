@@ -1,0 +1,27 @@
+/* Nord theme — light variant */
+html[data-theme="aurora-light"] {
+  --color-bg: #eceff4;
+  --color-bg-secondary: #e5e9f0;
+  --color-bg-tertiary: #d8dee9;
+  --color-text: #2e3440;
+  --color-text-secondary: #3b4252;
+  --color-text-muted: #4c566a;
+  --color-text-heading: #2e3440;
+  --color-border: #c8ced9;
+  --color-border-light: #d8dee9;
+  --color-link: #5e81ac;
+  --color-link-hover: #4c6e91;
+  --color-active-bg: rgba(94, 129, 172, 0.12);
+  --color-active-text: #5e81ac;
+  --color-hover-bg: #d8dee9;
+  --color-code-bg: #d8dee9;
+  --color-code-text: #a3be8c;
+  --color-pre-bg: #2e3440;
+  --color-pre-text: #d8dee9;
+  --color-blockquote-bg: rgba(216, 222, 233, 0.5);
+  --color-blockquote-border: #5e81ac;
+  --color-blockquote-text: #4c566a;
+  --color-table-header: #e5e9f0;
+  --color-scrollbar: #c8ced9;
+  --color-scrollbar-hover: #5e81ac;
+}

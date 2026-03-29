@@ -1,0 +1,11 @@
+/* Dracula theme - layout accents */
+html[data-theme="ghibli"] .markdown-body h1,
+html[data-theme="ghibli"] .markdown-body h2,
+html[data-theme="ghibli"] .markdown-body h3,
+html[data-theme="ghibli"] .markdown-body h4 {
+  color: #bd93f9;
+}
+
+html[data-theme="ghibli"] .markdown-body strong {
+  color: #f1fa8c;
+}

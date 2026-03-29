@@ -1,5 +1,5 @@
 /* Dark theme */
-html[data-theme="dark"] {
+html[data-theme="midnight"] {
   --color-bg: #0f172a;
   --color-bg-secondary: #1e293b;
   --color-bg-tertiary: #334155;

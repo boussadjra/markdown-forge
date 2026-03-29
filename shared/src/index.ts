@@ -9,9 +9,15 @@ export type TreeNode = {
 
 // ─── Theme ───────────────────────────────────────────────────
 
+export type ThemeVariant = {
+  mode: 'light' | 'dark';
+  cssFiles: string[];
+};
+
 export type Theme = {
   name: string;
   cssFiles: string[];
+  variants: ThemeVariant[];
 };
 
 // ─── Plugin ──────────────────────────────────────────────────

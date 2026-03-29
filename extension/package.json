@@ -2,7 +2,7 @@
   "name": "markdown-forge",
   "displayName": "Markdown Forge",
   "description": "Serve Markdown files as a live documentation website in the browser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "boussadjrabrahim",
   "license": "MIT",
   "icon": "icon.png",

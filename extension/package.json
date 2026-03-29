@@ -102,10 +102,10 @@
     "@markdown-forge/shared": "workspace:*"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
+    "@types/vscode": "^1.100.0",
     "@types/express": "^4.17.21",
-    "@types/ws": "^8.5.10",
-    "@types/markdown-it": "^14.1.1",
-    "typescript": "^5.4.0"
+    "@types/ws": "^8.18.0",
+    "@types/markdown-it": "^14.1.2",
+    "typescript": "^5.8.0"
   }
 }

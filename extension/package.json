@@ -2,7 +2,7 @@
   "name": "markdown-forge",
   "displayName": "Markdown Forge",
   "description": "Serve Markdown files as a live documentation website in the browser",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "publisher": "boussadjrabrahim",
   "license": "MIT",
   "icon": "icon.png",
@@ -11,7 +11,7 @@
     "url": "https://github.com/boussadjra/markdown-studio"
   },
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.100.0"
   },
   "categories": [
     "Other"

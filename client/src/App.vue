@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted } from 'vue';
 import { Icon } from '@iconify/vue';
 import type { TreeNode, MarkdownDocument, Theme } from './types';
 import { fetchTree, fetchFile, saveFile, fetchThemes } from './api';
@@ -13,7 +13,7 @@ const tree = ref<TreeNode[]>([]);
 const currentFile = ref('');
 const doc = ref<MarkdownDocument | null>(null);
 const themes = ref<Theme[]>([]);
-const activeTheme = ref('default');
+const activeTheme = ref('modern');
 const codeTheme = ref('github-dark');
 const sidebarOpen = ref(true);
 const loading = ref(false);
@@ -41,6 +41,7 @@ function toggleDarkMode() {
   darkMode.value = !darkMode.value;
   localStorage.setItem('markdownForge.darkMode', String(darkMode.value));
   applyDarkMode();
+  applyTheme();
 }
 
 async function loadTree() {
@@ -61,26 +62,65 @@ async function loadFile(path: string) {
 function onThemeChange(name: string) {
   activeTheme.value = name;
   localStorage.setItem('markdownForge.theme', name);
+  applyTheme();
+}
 
-  // Set data-theme attribute for CSS variable scoping
-  if (name === 'default') {
-    document.documentElement.removeAttribute('data-theme');
-  } else {
-    document.documentElement.setAttribute('data-theme', name);
-  }
+/** Dark-native themes where the base CSS is the dark variant */
+const DARK_NATIVE_THEMES = ['midnight', 'ghibli', 'aurora'];
 
-  // Load theme CSS files
-  const existing = document.getElementById('studio-theme');
-  if (existing) existing.remove();
+function applyTheme() {
+  const name = activeTheme.value;
+
+  // Remove all existing theme links
+  document.querySelectorAll('.studio-theme-link').forEach((el) => el.remove());
 
   const theme = themes.value.find((t) => t.name === name);
-  if (theme) {
-    for (const file of theme.cssFiles) {
-      const link = document.createElement('link');
-      link.id = 'studio-theme';
-      link.rel = 'stylesheet';
-      link.href = `/themes/${file}`;
-      document.head.appendChild(link);
+  if (!theme) {
+    document.documentElement.removeAttribute('data-theme');
+    return;
+  }
+
+  const isDarkNative = DARK_NATIVE_THEMES.includes(name);
+  const wantsDark = darkMode.value;
+
+  // Determine the data-theme attribute value
+  let dataThemeName: string;
+  if (name === 'modern') {
+    // Modern theme uses base CSS variables from style.css, no data-theme needed
+    document.documentElement.removeAttribute('data-theme');
+    return;
+  } else if (isDarkNative) {
+    // Base CSS = dark. Need light variant when in light mode.
+    dataThemeName = wantsDark ? name : `${name}-light`;
+  } else {
+    // Base CSS = light. Need dark variant when in dark mode.
+    dataThemeName = wantsDark ? `${name}-dark` : name;
+  }
+
+  document.documentElement.setAttribute('data-theme', dataThemeName);
+
+  // Load base CSS files
+  for (const file of theme.cssFiles) {
+    const link = document.createElement('link');
+    link.className = 'studio-theme-link';
+    link.rel = 'stylesheet';
+    link.href = `/themes/${file}`;
+    document.head.appendChild(link);
+  }
+
+  // Load variant CSS files if the mode differs from the base
+  const needsVariant = (isDarkNative && !wantsDark) || (!isDarkNative && wantsDark);
+  if (needsVariant) {
+    const variantMode = wantsDark ? 'dark' : 'light';
+    const variant = theme.variants.find((v) => v.mode === variantMode);
+    if (variant) {
+      for (const file of variant.cssFiles) {
+        const link = document.createElement('link');
+        link.className = 'studio-theme-link';
+        link.rel = 'stylesheet';
+        link.href = `/themes/${file}`;
+        document.head.appendChild(link);
+      }
     }
   }
 }
@@ -124,6 +164,60 @@ async function onSave() {
   }
 }
 
+function exportPdf() {
+  if (!doc.value) return;
+
+  // Gather all stylesheets (inline + linked)
+  const styles = Array.from(document.querySelectorAll('link[rel="stylesheet"], style'))
+    .map((el) => el.outerHTML)
+    .join('\n');
+
+  // Always use light mode for PDF export
+  // Determine the light variant of the current theme
+  const currentThemeName = activeTheme.value;
+  const isVariant = currentThemeName.endsWith('-dark') || currentThemeName.endsWith('-light');
+  const baseName = isVariant ? currentThemeName.replace(/-(dark|light)$/, '') : currentThemeName;
+  const darkNativeThemes = ['midnight', 'ghibli', 'aurora'];
+  const lightThemeName = darkNativeThemes.includes(baseName) ? `${baseName}-light` : baseName;
+  const themeAttr = lightThemeName !== 'modern' ? ` data-theme="${lightThemeName}"` : '';
+
+  const html = `<!DOCTYPE html>
+<html lang="en"${themeAttr}>
+<head>
+<meta charset="UTF-8">
+<title>${doc.value.title || currentFile.value}</title>
+${styles}
+<style>
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  body {
+    background: var(--color-bg); color: var(--color-text);
+    margin: 0; padding: 2.5rem 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  .print-container { max-width: 56rem; margin: 0 auto; }
+</style>
+</head>
+<body>
+<div class="print-container">
+${doc.value.title ? `<h1 style="color:var(--color-text-heading);font-size:2.25rem;font-weight:700;margin-bottom:2rem">${doc.value.title}</h1>` : ''}
+<div class="markdown-body">${doc.value.html}</div>
+</div>
+</body>
+</html>`;
+
+  const printWindow = window.open('', '_blank');
+  if (!printWindow) return;
+  printWindow.document.write(html);
+  printWindow.document.close();
+  printWindow.onafterprint = () => printWindow.close();
+  // Wait for styles to load before triggering print
+  printWindow.onload = () => {
+    setTimeout(() => printWindow.print(), 300);
+  };
+}
+
 onMounted(async () => {
   initDarkMode();
 
@@ -139,6 +233,8 @@ onMounted(async () => {
   const savedTheme = localStorage.getItem('markdownForge.theme');
   if (savedTheme && themes.value.some((t) => t.name === savedTheme)) {
     onThemeChange(savedTheme);
+  } else {
+    applyTheme();
   }
 
   const params = new URLSearchParams(window.location.search);
@@ -180,7 +276,7 @@ function findFirstFile(nodes: TreeNode[]): string | undefined {
     <!-- Sidebar -->
     <aside
       v-show="sidebarOpen"
-      class="w-72 flex-shrink-0 flex flex-col overflow-hidden transition-colors duration-200"
+      class="w-72 shrink-0 flex flex-col overflow-hidden transition-colors duration-200"
       :style="{
         background: 'var(--color-bg-secondary)',
         borderRight: '1px solid var(--color-border)',
@@ -239,10 +335,20 @@ function findFirstFile(nodes: TreeNode[]): string | undefined {
           <Icon icon="solar:document-text-linear" class="w-4 h-4 shrink-0" />
           <span class="truncate">{{ currentFile || 'No file selected' }}</span>
         </div>
-        <!-- Edit toggle -->
+        <!-- Export PDF button -->
         <button
           v-if="doc && currentFile"
           class="ml-auto p-1.5 rounded-lg transition-colors"
+          :style="{ color: 'var(--color-text-muted)' }"
+          @click="exportPdf"
+          title="Export as PDF"
+        >
+          <Icon icon="solar:file-download-bold" class="w-5 h-5" />
+        </button>
+        <!-- Edit toggle -->
+        <button
+          v-if="doc && currentFile"
+          class="p-1.5 rounded-lg transition-colors"
           :style="{
             color: editMode ? 'var(--color-active-text)' : 'var(--color-text-muted)',
             background: editMode ? 'var(--color-active-bg)' : 'transparent',
@@ -305,7 +411,7 @@ function findFirstFile(nodes: TreeNode[]): string | undefined {
             <textarea
               v-model="editContent"
               class="flex-1 min-h-[400px] w-full rounded-xl p-5 font-mono text-sm leading-relaxed
-                     focus:outline-none focus:ring-2 focus:ring-blue-500/30 resize-y"
+                     focus:outline-hidden focus:ring-2 focus:ring-blue-500/30 resize-y"
               :style="{
                 background: 'var(--color-bg-secondary)',
                 color: 'var(--color-text)',

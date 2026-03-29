@@ -24,8 +24,8 @@ const emit = defineEmits<{
     <select
       :value="active"
       class="w-full text-sm rounded-lg px-2.5 py-1.5
-             focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors
-             appearance-none cursor-pointer"
+             focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 transition-colors
+             appearance-none cursor-pointer capitalize"
       :style="{
         background: 'var(--color-bg)',
         color: 'var(--color-text)',

@@ -1,6 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 /* ── Light mode (default) ─────────────────────────────── */
 :root {
@@ -133,7 +149,7 @@ body {
 .markdown-body code {
   background: var(--color-code-bg);
   color: var(--color-code-text);
-  @apply px-1.5 py-0.5 rounded font-mono;
+  @apply px-1.5 py-0.5 rounded-sm font-mono;
   font-size: 0.875em;
 }
 .markdown-body pre {
@@ -165,7 +181,7 @@ body {
   color: var(--color-text-secondary);
   @apply px-4 py-2.5;
 }
-.markdown-body img { @apply max-w-full h-auto rounded-lg shadow-sm; }
+.markdown-body img { @apply max-w-full h-auto rounded-lg shadow-xs; }
 .markdown-body strong {
   color: var(--color-text-heading);
   @apply font-semibold;

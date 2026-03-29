@@ -1,0 +1,27 @@
+/* Dracula theme */
+html[data-theme="dracula"] {
+  --color-bg: #282a36;
+  --color-bg-secondary: #21222c;
+  --color-bg-tertiary: #343746;
+  --color-text: #f8f8f2;
+  --color-text-secondary: #ccccc7;
+  --color-text-muted: #6272a4;
+  --color-text-heading: #f8f8f2;
+  --color-border: #44475a;
+  --color-border-light: #343746;
+  --color-link: #8be9fd;
+  --color-link-hover: #50fa7b;
+  --color-active-bg: rgba(189, 147, 249, 0.15);
+  --color-active-text: #bd93f9;
+  --color-hover-bg: #343746;
+  --color-code-bg: #44475a;
+  --color-code-text: #50fa7b;
+  --color-pre-bg: #1e1f29;
+  --color-pre-text: #f8f8f2;
+  --color-blockquote-bg: rgba(68, 71, 90, 0.4);
+  --color-blockquote-border: #bd93f9;
+  --color-blockquote-text: #6272a4;
+  --color-table-header: #44475a;
+  --color-scrollbar: #6272a4;
+  --color-scrollbar-hover: #bd93f9;
+}

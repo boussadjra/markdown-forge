@@ -1,0 +1,27 @@
+/* Solarized theme */
+html[data-theme="solarized"] {
+  --color-bg: #fdf6e3;
+  --color-bg-secondary: #eee8d5;
+  --color-bg-tertiary: #e4ddca;
+  --color-text: #657b83;
+  --color-text-secondary: #586e75;
+  --color-text-muted: #93a1a1;
+  --color-text-heading: #073642;
+  --color-border: #d3cbb7;
+  --color-border-light: #eee8d5;
+  --color-link: #268bd2;
+  --color-link-hover: #2aa198;
+  --color-active-bg: rgba(38, 139, 210, 0.1);
+  --color-active-text: #268bd2;
+  --color-hover-bg: #e4ddca;
+  --color-code-bg: #eee8d5;
+  --color-code-text: #cb4b16;
+  --color-pre-bg: #002b36;
+  --color-pre-text: #93a1a1;
+  --color-blockquote-bg: rgba(238, 232, 213, 0.6);
+  --color-blockquote-border: #2aa198;
+  --color-blockquote-text: #93a1a1;
+  --color-table-header: #eee8d5;
+  --color-scrollbar: #d3cbb7;
+  --color-scrollbar-hover: #93a1a1;
+}

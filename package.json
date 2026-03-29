@@ -1,0 +1,18 @@
+{
+  "name": "markdown-studio-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:shared && npm run build:server && npm run build:client && npm run build:extension",
+    "build:shared": "cd shared && npx tsc",
+    "build:server": "cd server && npx tsc",
+    "build:client": "cd client && npx vite build",
+    "build:extension": "cd extension && npx tsc",
+    "dev:client": "cd client && npx vite",
+    "package": "cd extension && npx vsce package"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boussadjra/markdown-studio"
+  }
+}

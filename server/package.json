@@ -1,0 +1,24 @@
+{
+  "name": "@markdown-studio/server",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.9.0",
+    "ignore": "^7.0.5",
+    "markdown-it": "^14.1.0",
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/markdown-it": "^14.1.1",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.4.0"
+  }
+}

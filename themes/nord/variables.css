@@ -1,0 +1,27 @@
+/* Nord theme */
+html[data-theme="nord"] {
+  --color-bg: #2e3440;
+  --color-bg-secondary: #3b4252;
+  --color-bg-tertiary: #434c5e;
+  --color-text: #d8dee9;
+  --color-text-secondary: #c7cdd9;
+  --color-text-muted: #7b88a1;
+  --color-text-heading: #eceff4;
+  --color-border: #4c566a;
+  --color-border-light: #3b4252;
+  --color-link: #88c0d0;
+  --color-link-hover: #8fbcbb;
+  --color-active-bg: rgba(136, 192, 208, 0.15);
+  --color-active-text: #88c0d0;
+  --color-hover-bg: #434c5e;
+  --color-code-bg: #3b4252;
+  --color-code-text: #a3be8c;
+  --color-pre-bg: #242933;
+  --color-pre-text: #d8dee9;
+  --color-blockquote-bg: rgba(59, 66, 82, 0.5);
+  --color-blockquote-border: #5e81ac;
+  --color-blockquote-text: #81a1c1;
+  --color-table-header: #3b4252;
+  --color-scrollbar: #4c566a;
+  --color-scrollbar-hover: #5e81ac;
+}

@@ -1,0 +1,100 @@
+{
+  "name": "markdown-studio",
+  "displayName": "Markdown Studio",
+  "description": "Serve Markdown files as a live documentation website in the browser",
+  "version": "0.1.0",
+  "publisher": "markdown-studio",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdownStudio.serve",
+        "title": "Serve as Website",
+        "category": "Markdown Studio",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "markdownStudio.openInBrowser",
+        "title": "Open in Browser",
+        "category": "Markdown Studio",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "markdownStudio.stop",
+        "title": "Stop Server",
+        "category": "Markdown Studio",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "markdownStudio.exportSite",
+        "title": "Export as Static Site",
+        "category": "Markdown Studio"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "markdownStudio.serve",
+          "when": "resourceLangId == markdown && !markdownStudio.serverRunning",
+          "group": "navigation"
+        },
+        {
+          "command": "markdownStudio.openInBrowser",
+          "when": "resourceLangId == markdown && markdownStudio.serverRunning",
+          "group": "navigation"
+        },
+        {
+          "command": "markdownStudio.stop",
+          "when": "resourceLangId == markdown && markdownStudio.serverRunning",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Markdown Studio",
+      "properties": {
+        "markdownStudio.port": {
+          "type": "number",
+          "default": 4200,
+          "description": "Port for the Markdown Studio server"
+        },
+        "markdownStudio.theme": {
+          "type": "string",
+          "default": "default",
+          "description": "Active theme name"
+        },
+        "markdownStudio.autoReload": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically reload browser on file changes"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ws": "^8.17.0",
+    "markdown-it": "^14.1.0",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.9.0",
+    "open": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/express": "^4.17.21",
+    "@types/ws": "^8.5.10",
+    "@types/markdown-it": "^14.1.1",
+    "typescript": "^5.4.0"
+  }
+}

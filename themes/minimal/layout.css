@@ -1,0 +1,16 @@
+/* Minimal theme - layout */
+html[data-theme="minimal"] body {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+html[data-theme="minimal"] .markdown-body {
+  max-width: 680px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+html[data-theme="minimal"] .markdown-body h1,
+html[data-theme="minimal"] .markdown-body h2,
+html[data-theme="minimal"] .markdown-body h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}

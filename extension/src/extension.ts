@@ -7,12 +7,30 @@ let server: StudioServer | null = null;
 let fileWatcher: vscode.FileSystemWatcher | null = null;
 let actualPort: number | null = null;
 
-function setServerRunning(running: boolean): void {
-  vscode.commands.executeCommand('setContext', 'markdownForge.serverRunning', running);
+function setServerRunning(running: boolean): Thenable<void> {
+  return vscode.commands.executeCommand('setContext', 'markdownForge.serverRunning', running);
 }
 
 export function activate(context: vscode.ExtensionContext) {
   setServerRunning(false);
+
+  // --- Shared stop logic ---
+  async function stopServer(): Promise<void> {
+    const s = server;
+    server = null;
+    actualPort = null;
+    fileWatcher?.dispose();
+    fileWatcher = null;
+    await setServerRunning(false);
+
+    if (s) {
+      try {
+        await s.stop();
+      } catch {
+        // Server may already be closed — ignore
+      }
+    }
+  }
 
   // --- Serve Command ---
   const serveCmd = vscode.commands.registerCommand('markdownForge.serve', async () => {
@@ -48,7 +66,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     try {
       actualPort = await server.start();
-      setServerRunning(true);
+      await setServerRunning(true);
       vscode.window.showInformationMessage(`Markdown Forge running on port ${actualPort}`);
 
       // Determine initial file to open
@@ -85,7 +103,7 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.window.showErrorMessage(`Failed to start server: ${err}`);
       server = null;
       actualPort = null;
-      setServerRunning(false);
+      await setServerRunning(false);
     }
   });
 
@@ -110,16 +128,21 @@ export function activate(context: vscode.ExtensionContext) {
   const stopCmd = vscode.commands.registerCommand('markdownForge.stop', async () => {
     if (!server) {
       vscode.window.showInformationMessage('Markdown Forge is not running.');
+      await setServerRunning(false);
       return;
     }
 
-    await server.stop();
-    server = null;
-    actualPort = null;
-    fileWatcher?.dispose();
-    fileWatcher = null;
-    setServerRunning(false);
+    await stopServer();
     vscode.window.showInformationMessage('Markdown Forge stopped.');
+  });
+
+  // --- Toggle Command (for editor title button) ---
+  const toggleCmd = vscode.commands.registerCommand('markdownForge.toggle', async () => {
+    if (server) {
+      await vscode.commands.executeCommand('markdownForge.stop');
+    } else {
+      await vscode.commands.executeCommand('markdownForge.serve');
+    }
   });
 
   // --- Export Command (placeholder) ---
@@ -127,7 +150,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.window.showInformationMessage('Export feature coming soon.');
   });
 
-  context.subscriptions.push(serveCmd, openCmd, stopCmd, exportCmd);
+  context.subscriptions.push(serveCmd, openCmd, stopCmd, toggleCmd, exportCmd);
 
   // --- Extensibility API ---
   return {
@@ -145,7 +168,7 @@ export function deactivate(): Promise<void> | undefined {
     fileWatcher?.dispose();
     fileWatcher = null;
     setServerRunning(false);
-    return s.stop();
+    return s.stop().catch(() => {});
   }
 }
 

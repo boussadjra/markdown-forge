@@ -2,7 +2,7 @@
   "name": "markdown-forge",
   "displayName": "Markdown Forge",
   "description": "Serve Markdown files as a live documentation website in the browser",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "boussadjrabrahim",
   "license": "MIT",
   "icon": "icon.png",
@@ -46,6 +46,12 @@
         "icon": "$(debug-stop)"
       },
       {
+        "command": "markdownForge.toggle",
+        "title": "Toggle Server",
+        "category": "Markdown Forge",
+        "icon": "$(globe)"
+      },
+      {
         "command": "markdownForge.exportSite",
         "title": "Export as Static Site",
         "category": "Markdown Forge"
@@ -56,11 +62,6 @@
         {
           "command": "markdownForge.serve",
           "when": "resourceLangId == markdown && !markdownForge.serverRunning",
-          "group": "navigation"
-        },
-        {
-          "command": "markdownForge.openInBrowser",
-          "when": "resourceLangId == markdown && markdownForge.serverRunning",
           "group": "navigation"
         },
         {

@@ -1,1 +1,10 @@
-/* Nord theme — no extra layout overrides, all handled via variables */
+/* Aurora — subtle glow effects for that northern-lights feel */
+html[data-theme="aurora"] .markdown-body h1,
+html[data-theme="aurora"] .markdown-body h2 {
+  text-shadow: 0 0 24px rgba(94, 228, 181, 0.15);
+}
+
+html[data-theme="aurora"] .markdown-body blockquote {
+  border-left-width: 3px;
+  border-image: linear-gradient(180deg, #5ee4b5, #a78bfa) 1;
+}

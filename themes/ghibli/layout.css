@@ -1,11 +1,13 @@
-/* Dracula theme - layout accents */
+/* Ghibli — warm, soft styling (dark base) */
 html[data-theme="ghibli"] .markdown-body h1,
 html[data-theme="ghibli"] .markdown-body h2,
 html[data-theme="ghibli"] .markdown-body h3,
 html[data-theme="ghibli"] .markdown-body h4 {
-  color: #bd93f9;
+  color: var(--color-text-heading);
+  font-family: 'Georgia', 'Palatino Linotype', serif;
 }
 
-html[data-theme="ghibli"] .markdown-body strong {
-  color: #f1fa8c;
+html[data-theme="ghibli"] .markdown-body blockquote {
+  border-radius: 8px;
+  padding: 1em 1.2em;
 }

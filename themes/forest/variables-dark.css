@@ -1,27 +1,27 @@
-/* Minimal theme — dark variant */
+/* Forest — dark variant: deep woodland canopy */
 html[data-theme="forest-dark"] {
-  --color-bg: #1a1a1a;
-  --color-bg-secondary: #242424;
-  --color-bg-tertiary: #2e2e2e;
-  --color-text: #d4d4d4;
-  --color-text-secondary: #b0b0b0;
-  --color-text-muted: #8a8a8a;
-  --color-text-heading: #f0f0f0;
-  --color-border: #3a3a3a;
-  --color-border-light: #2e2e2e;
-  --color-link: #6cb6ff;
-  --color-link-hover: #93ccff;
-  --color-active-bg: rgba(108, 182, 255, 0.12);
-  --color-active-text: #6cb6ff;
-  --color-hover-bg: #2e2e2e;
-  --color-code-bg: #2e2e2e;
-  --color-code-text: #d4d4d4;
-  --color-pre-bg: #111111;
-  --color-pre-text: #d4d4d4;
-  --color-blockquote-bg: rgba(255, 255, 255, 0.03);
-  --color-blockquote-border: #555555;
-  --color-blockquote-text: #8a8a8a;
-  --color-table-header: #242424;
-  --color-scrollbar: #555555;
-  --color-scrollbar-hover: #6a6a6a;
+  --color-bg: #141e12;
+  --color-bg-secondary: #1b2818;
+  --color-bg-tertiary: #253420;
+  --color-text: #c9d4b8;
+  --color-text-secondary: #a8b794;
+  --color-text-muted: #728062;
+  --color-text-heading: #d8e8c2;
+  --color-border: #2e3f28;
+  --color-border-light: #253420;
+  --color-link: #7aad5e;
+  --color-link-hover: #9fcf80;
+  --color-active-bg: rgba(122, 173, 94, 0.14);
+  --color-active-text: #7aad5e;
+  --color-hover-bg: #253420;
+  --color-code-bg: #1b2818;
+  --color-code-text: #c1a96b;
+  --color-pre-bg: #0d140c;
+  --color-pre-text: #c9d4b8;
+  --color-blockquote-bg: rgba(122, 173, 94, 0.06);
+  --color-blockquote-border: #5a8a42;
+  --color-blockquote-text: #728062;
+  --color-table-header: #1b2818;
+  --color-scrollbar: #2e3f28;
+  --color-scrollbar-hover: #5a8a42;
 }

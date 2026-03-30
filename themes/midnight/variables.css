@@ -1,27 +1,27 @@
-/* Dark theme */
+/* Midnight — deep night sky: inky indigo, silver starlight, cool moonlit accents */
 html[data-theme="midnight"] {
-  --color-bg: #0f172a;
-  --color-bg-secondary: #1e293b;
-  --color-bg-tertiary: #334155;
-  --color-text: #e2e8f0;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #94a3b8;
-  --color-text-heading: #f8fafc;
-  --color-border: #334155;
-  --color-border-light: #1e293b;
-  --color-link: #60a5fa;
-  --color-link-hover: #93c5fd;
-  --color-active-bg: rgba(59, 130, 246, 0.15);
-  --color-active-text: #60a5fa;
-  --color-hover-bg: #1e293b;
-  --color-code-bg: #1e293b;
-  --color-code-text: #e2e8f0;
-  --color-pre-bg: #0c1222;
-  --color-pre-text: #e2e8f0;
-  --color-blockquote-bg: rgba(30, 58, 138, 0.2);
-  --color-blockquote-border: #3b82f6;
-  --color-blockquote-text: #94a3b8;
-  --color-table-header: #1e293b;
-  --color-scrollbar: #475569;
-  --color-scrollbar-hover: #64748b;
+  --color-bg: #090c18;
+  --color-bg-secondary: #0f1425;
+  --color-bg-tertiary: #181e36;
+  --color-text: #c4c9e0;
+  --color-text-secondary: #9da3c0;
+  --color-text-muted: #5e6588;
+  --color-text-heading: #e8ecf8;
+  --color-border: #222845;
+  --color-border-light: #181e36;
+  --color-link: #7b9ef8;
+  --color-link-hover: #b8a9f0;
+  --color-active-bg: rgba(123, 158, 248, 0.12);
+  --color-active-text: #7b9ef8;
+  --color-hover-bg: #151b30;
+  --color-code-bg: #131830;
+  --color-code-text: #c4c9e0;
+  --color-pre-bg: #060810;
+  --color-pre-text: #c4c9e0;
+  --color-blockquote-bg: rgba(123, 158, 248, 0.05);
+  --color-blockquote-border: #5a6aaf;
+  --color-blockquote-text: #6e75a0;
+  --color-table-header: #131830;
+  --color-scrollbar: #2a3058;
+  --color-scrollbar-hover: #5a6aaf;
 }

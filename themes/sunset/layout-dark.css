@@ -1,1 +1,5 @@
-/* Solarized theme — dark layout: no extra overrides */
+/* Sunset — dark layout */
+html[data-theme="sunset-dark"] .markdown-body h1 {
+  border-bottom: 2px solid var(--color-link);
+  padding-bottom: 0.3em;
+}

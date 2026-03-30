@@ -1,27 +1,27 @@
-/* Nord theme — light variant */
+/* Aurora — light variant: soft lavender sky with green/purple accents */
 html[data-theme="aurora-light"] {
-  --color-bg: #eceff4;
-  --color-bg-secondary: #e5e9f0;
-  --color-bg-tertiary: #d8dee9;
-  --color-text: #2e3440;
-  --color-text-secondary: #3b4252;
-  --color-text-muted: #4c566a;
-  --color-text-heading: #2e3440;
-  --color-border: #c8ced9;
-  --color-border-light: #d8dee9;
-  --color-link: #5e81ac;
-  --color-link-hover: #4c6e91;
-  --color-active-bg: rgba(94, 129, 172, 0.12);
-  --color-active-text: #5e81ac;
-  --color-hover-bg: #d8dee9;
-  --color-code-bg: #d8dee9;
-  --color-code-text: #a3be8c;
-  --color-pre-bg: #2e3440;
-  --color-pre-text: #d8dee9;
-  --color-blockquote-bg: rgba(216, 222, 233, 0.5);
-  --color-blockquote-border: #5e81ac;
-  --color-blockquote-text: #4c566a;
-  --color-table-header: #e5e9f0;
-  --color-scrollbar: #c8ced9;
-  --color-scrollbar-hover: #5e81ac;
+  --color-bg: #f3f0fa;
+  --color-bg-secondary: #ebe6f5;
+  --color-bg-tertiary: #ddd6ed;
+  --color-text: #1e1a2d;
+  --color-text-secondary: #3a3455;
+  --color-text-muted: #7a6fa0;
+  --color-text-heading: #12202a;
+  --color-border: #cec5e3;
+  --color-border-light: #ddd6ed;
+  --color-link: #1a8c6a;
+  --color-link-hover: #7c3aed;
+  --color-active-bg: rgba(26, 140, 106, 0.1);
+  --color-active-text: #1a8c6a;
+  --color-hover-bg: #e4dcf0;
+  --color-code-bg: #e4dcf0;
+  --color-code-text: #1a8c6a;
+  --color-pre-bg: #0b0e1a;
+  --color-pre-text: #cdd6e4;
+  --color-blockquote-bg: rgba(167, 139, 250, 0.08);
+  --color-blockquote-border: #7c3aed;
+  --color-blockquote-text: #6b5d8f;
+  --color-table-header: #ebe6f5;
+  --color-scrollbar: #cec5e3;
+  --color-scrollbar-hover: #7c3aed;
 }

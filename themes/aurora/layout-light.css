@@ -1,1 +1,5 @@
-/* Nord theme — light layout: no extra overrides */
+/* Aurora — light layout accents */
+html[data-theme="aurora-light"] .markdown-body blockquote {
+  border-left-width: 3px;
+  border-image: linear-gradient(180deg, #1a8c6a, #7c3aed) 1;
+}

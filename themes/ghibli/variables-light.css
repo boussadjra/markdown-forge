@@ -1,27 +1,27 @@
-/* Dracula theme — light variant */
+/* Ghibli — light variant: warm cream sky, soft greens, gentle pinks */
 html[data-theme="ghibli-light"] {
-  --color-bg: #f8f8f2;
-  --color-bg-secondary: #eeedeb;
-  --color-bg-tertiary: #e4e3df;
-  --color-text: #282a36;
-  --color-text-secondary: #44475a;
-  --color-text-muted: #6272a4;
-  --color-text-heading: #282a36;
-  --color-border: #d6d5d0;
-  --color-border-light: #e4e3df;
-  --color-link: #0550ae;
-  --color-link-hover: #1b7c3a;
-  --color-active-bg: rgba(130, 80, 223, 0.1);
-  --color-active-text: #7c3aed;
-  --color-hover-bg: #e4e3df;
-  --color-code-bg: #e4e3df;
-  --color-code-text: #1b7c3a;
-  --color-pre-bg: #282a36;
-  --color-pre-text: #f8f8f2;
-  --color-blockquote-bg: rgba(98, 114, 164, 0.08);
-  --color-blockquote-border: #7c3aed;
-  --color-blockquote-text: #6272a4;
-  --color-table-header: #eeedeb;
-  --color-scrollbar: #c4c3bf;
-  --color-scrollbar-hover: #7c3aed;
+  --color-bg: #fdf8ef;
+  --color-bg-secondary: #f5eddc;
+  --color-bg-tertiary: #ece3ce;
+  --color-text: #4a3f2f;
+  --color-text-secondary: #6b5d4a;
+  --color-text-muted: #9a8c76;
+  --color-text-heading: #2c5f4a;
+  --color-border: #ddd3be;
+  --color-border-light: #ece3ce;
+  --color-link: #5a8f7a;
+  --color-link-hover: #c47a6c;
+  --color-active-bg: rgba(90, 143, 122, 0.1);
+  --color-active-text: #5a8f7a;
+  --color-hover-bg: #f0e7d4;
+  --color-code-bg: #f0e7d4;
+  --color-code-text: #8b5e3c;
+  --color-pre-bg: #2a3630;
+  --color-pre-text: #ddd3be;
+  --color-blockquote-bg: rgba(196, 122, 108, 0.06);
+  --color-blockquote-border: #c47a6c;
+  --color-blockquote-text: #8a7a64;
+  --color-table-header: #f5eddc;
+  --color-scrollbar: #d0c6ae;
+  --color-scrollbar-hover: #5a8f7a;
 }

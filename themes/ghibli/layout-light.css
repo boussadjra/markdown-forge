@@ -1,11 +1,13 @@
-/* Dracula theme — light layout accents */
+/* Ghibli — light variant layout */
 html[data-theme="ghibli-light"] .markdown-body h1,
 html[data-theme="ghibli-light"] .markdown-body h2,
 html[data-theme="ghibli-light"] .markdown-body h3,
 html[data-theme="ghibli-light"] .markdown-body h4 {
-  color: #7c3aed;
+  color: var(--color-text-heading);
+  font-family: 'Georgia', 'Palatino Linotype', serif;
 }
 
-html[data-theme="ghibli-light"] .markdown-body strong {
-  color: #b45309;
+html[data-theme="ghibli-light"] .markdown-body blockquote {
+  border-radius: 8px;
+  padding: 1em 1.2em;
 }

@@ -1,27 +1,27 @@
-/* Minimal theme */
+/* Forest — Natural woodland: warm beige/cream with earthy greens and brown accents */
 html[data-theme="forest"] {
-  --color-bg: #fafafa;
-  --color-bg-secondary: #f5f5f5;
-  --color-bg-tertiary: #eeeeee;
-  --color-text: #333333;
-  --color-text-secondary: #555555;
-  --color-text-muted: #777777;
-  --color-text-heading: #111111;
-  --color-border: #dddddd;
-  --color-border-light: #eeeeee;
-  --color-link: #0066cc;
-  --color-link-hover: #004c99;
-  --color-active-bg: #e6f0ff;
-  --color-active-text: #0066cc;
-  --color-hover-bg: #eeeeee;
-  --color-code-bg: #eeeeee;
-  --color-code-text: #333333;
-  --color-pre-bg: #2d2d2d;
-  --color-pre-text: #cccccc;
-  --color-blockquote-bg: rgba(0, 0, 0, 0.03);
-  --color-blockquote-border: #cccccc;
-  --color-blockquote-text: #777777;
-  --color-table-header: #f5f5f5;
-  --color-scrollbar: #cccccc;
-  --color-scrollbar-hover: #aaaaaa;
+  --color-bg: #faf6ee;
+  --color-bg-secondary: #f0ebe0;
+  --color-bg-tertiary: #e5dfd2;
+  --color-text: #3b3226;
+  --color-text-secondary: #5a4e3c;
+  --color-text-muted: #8a7d6a;
+  --color-text-heading: #2a3c1e;
+  --color-border: #d4ccb8;
+  --color-border-light: #e5dfd2;
+  --color-link: #4a7c3f;
+  --color-link-hover: #3a6330;
+  --color-active-bg: rgba(74, 124, 63, 0.1);
+  --color-active-text: #4a7c3f;
+  --color-hover-bg: #eae4d5;
+  --color-code-bg: #eae4d5;
+  --color-code-text: #6b4c2a;
+  --color-pre-bg: #1e2a16;
+  --color-pre-text: #d4cfbe;
+  --color-blockquote-bg: rgba(74, 124, 63, 0.06);
+  --color-blockquote-border: #7aad5e;
+  --color-blockquote-text: #6e6352;
+  --color-table-header: #f0ebe0;
+  --color-scrollbar: #c8c0aa;
+  --color-scrollbar-hover: #7aad5e;
 }

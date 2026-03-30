@@ -1,27 +1,27 @@
-/* GitHub theme */
+/* Ocean — coastal waters: soft sandy white, deep blues, teal and seafoam accents */
 html[data-theme="ocean"] {
-  --color-bg: #ffffff;
-  --color-bg-secondary: #f6f8fa;
-  --color-bg-tertiary: #eaeef2;
-  --color-text: #1f2328;
-  --color-text-secondary: #656d76;
-  --color-text-muted: #656d76;
-  --color-text-heading: #1f2328;
-  --color-border: #d0d7de;
-  --color-border-light: #eaeef2;
-  --color-link: #0969da;
-  --color-link-hover: #0550ae;
-  --color-active-bg: #ddf4ff;
-  --color-active-text: #0969da;
-  --color-hover-bg: #f3f4f6;
-  --color-code-bg: rgba(175, 184, 193, 0.2);
-  --color-code-text: #1f2328;
-  --color-pre-bg: #161b22;
-  --color-pre-text: #e6edf3;
-  --color-blockquote-bg: transparent;
-  --color-blockquote-border: #d0d7de;
-  --color-blockquote-text: #656d76;
-  --color-table-header: #f6f8fa;
-  --color-scrollbar: #c4c8cc;
-  --color-scrollbar-hover: #a3a7ab;
+  --color-bg: #f5f9fc;
+  --color-bg-secondary: #e8f1f8;
+  --color-bg-tertiary: #d4e6f2;
+  --color-text: #1a3a4a;
+  --color-text-secondary: #2e5468;
+  --color-text-muted: #5e8a9e;
+  --color-text-heading: #0c2d3f;
+  --color-border: #bcd5e4;
+  --color-border-light: #d4e6f2;
+  --color-link: #1a7a8a;
+  --color-link-hover: #d4725c;
+  --color-active-bg: rgba(26, 122, 138, 0.08);
+  --color-active-text: #1a7a8a;
+  --color-hover-bg: #deeaf3;
+  --color-code-bg: #deeaf3;
+  --color-code-text: #1a3a4a;
+  --color-pre-bg: #0a2636;
+  --color-pre-text: #c4dae8;
+  --color-blockquote-bg: rgba(26, 122, 138, 0.05);
+  --color-blockquote-border: #48b0a8;
+  --color-blockquote-text: #5e8a9e;
+  --color-table-header: #e8f1f8;
+  --color-scrollbar: #a8c8da;
+  --color-scrollbar-hover: #48b0a8;
 }

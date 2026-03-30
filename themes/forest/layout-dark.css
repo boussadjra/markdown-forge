@@ -1,4 +1,4 @@
-/* Minimal theme — dark layout */
+/* Forest — dark layout */
 html[data-theme="forest-dark"] body {
   font-family: Georgia, 'Times New Roman', serif;
 }
@@ -12,5 +12,6 @@ html[data-theme="forest-dark"] .markdown-body {
 html[data-theme="forest-dark"] .markdown-body h1,
 html[data-theme="forest-dark"] .markdown-body h2,
 html[data-theme="forest-dark"] .markdown-body h3 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  color: var(--color-text-heading);
 }

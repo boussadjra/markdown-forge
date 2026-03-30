@@ -1,1 +1,5 @@
-/* Dark theme — no extra layout overrides, all handled via variables */
+/* Midnight — subtle starlight glow on headings */
+html[data-theme="midnight"] .markdown-body h1,
+html[data-theme="midnight"] .markdown-body h2 {
+  text-shadow: 0 0 20px rgba(123, 158, 248, 0.12);
+}

@@ -19,6 +19,28 @@ export class MarkdownEngine {
         return `<pre class="hljs"><code>${this.md.utils.escapeHtml(str)}</code></pre>`;
       },
     });
+
+    // Add heading IDs for anchor links / table of contents
+    this.md.renderer.rules['heading_open'] = (tokens, idx) => {
+      const token = tokens[idx];
+      const tag = token.tag; // h1, h2, etc.
+      const inline = tokens[idx + 1];
+      const text = inline?.children
+        ?.filter((t) => t.type === 'text' || t.type === 'code_inline')
+        .map((t) => t.content)
+        .join('') ?? '';
+      const id = this.slugify(text);
+      return `<${tag} id="${id}">`;
+    };
+  }
+
+  private slugify(text: string): string {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_]+/g, '-')
+      .replace(/^-+|-+$/g, '');
   }
 
   registerPlugin(plugin: Plugin): void {

@@ -8,7 +8,8 @@
     "build:client": "pnpm --filter @markdown-forge/client build",
     "build:extension": "pnpm --filter markdown-forge build",
     "dev:client": "pnpm --filter @markdown-forge/client dev",
-    "package": "pnpm --filter markdown-forge vsce:package"
+    "vsix": "pnpm --filter markdown-forge vsce:package",
+    "package": "pnpm run vsix"
   },
   "license": "MIT",
   "repository": {

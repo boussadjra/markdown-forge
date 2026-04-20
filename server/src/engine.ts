@@ -20,6 +20,20 @@ export class MarkdownEngine {
       },
     });
 
+    // Render mermaid fences as <pre class="mermaid"> for client-side rendering.
+    // We keep the raw source in a data attribute so the client can re-render
+    // (e.g. on theme change) after mermaid replaces the inner HTML with SVG.
+    const defaultFence = this.md.renderer.rules['fence']!;
+    this.md.renderer.rules['fence'] = (tokens, idx, options, env, self) => {
+      const token = tokens[idx]!;
+      const info = (token.info || '').trim().toLowerCase();
+      if (info === 'mermaid') {
+        const escaped = this.md.utils.escapeHtml(token.content);
+        return `<pre class="mermaid" data-mermaid-src="${escaped}">${escaped}</pre>\n`;
+      }
+      return defaultFence(tokens, idx, options, env, self);
+    };
+
     // Add heading IDs for anchor links / table of contents
     this.md.renderer.rules['heading_open'] = (tokens, idx) => {
       const token = tokens[idx];

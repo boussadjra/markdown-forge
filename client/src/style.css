@@ -192,3 +192,37 @@ body {
   background: transparent !important;
   padding: 0;
 }
+
+/* ── Mermaid diagrams ─────────────────────────────────── */
+.markdown-body pre.mermaid {
+  background: var(--color-bg-secondary);
+  color: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: 0.875rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  font-family: inherit;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04),
+    0 4px 16px -4px rgba(15, 23, 42, 0.06);
+  /* Hide raw source while mermaid is loading to avoid a flash of code */
+  min-height: 3rem;
+}
+
+.markdown-body pre.mermaid:not([data-processed]) {
+  color: var(--color-text-muted);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  white-space: pre;
+  text-align: left;
+  display: block;
+  opacity: 0.6;
+}
+
+.markdown-body pre.mermaid[data-processed] svg {
+  max-width: 100%;
+  height: auto;
+}
